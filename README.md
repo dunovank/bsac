@@ -1,7 +1,7 @@
 #BSAC - Believer-Skeptic/Actor-Critic Cortico-BG Neural Network Model
 
 
-Currently includes Believer-Skeptic Attractor Network, representing
+Currently includes Believer-Skeptic Attractor Network http://biorxiv.org/content/early/2016/01/18/037085, representing
 direct-indirect competition within single action channel of BG. Goal is
 to implement a full rate-based neural network including the following nodes
 
