@@ -16,11 +16,10 @@ temporal_dynamics = lambda p, t: np.cosh(p['xb'][:, na] * t)
 resp_up = lambda trace, a: np.argmax((trace.T >= a).T, axis=2) * dt
 ss_resp_up = lambda trace, a: np.argmax((trace.T >= a).T, axis=3) * dt
 resp_lo = lambda trace: np.argmax((trace.T <= 0).T, axis=3) * dt
-RT = lambda ontime, rbool: ontime[:, na] + \
-    (rbool * np.where(rbool == 0, np.nan, 1))
+RT = lambda ontime, rbool: ontime[:, na] + (rbool * np.where(rbool==0, np.nan, 1))
 RTQ = lambda zpd: map((lambda x: mq(x[0][x[0] < x[1]], prob)), zpd)
-prop = lambda n, k: factorial(n) / (factorial(k) * factorial(n - k))
-likelihood = lambda fact, prior, n, k: (fact * prior**k) * (1 - prior)**(n - k)
+prop = lambda n, k: factorial(n)/(factorial(k) * factorial(n-k))
+likelihood = lambda fact, prior, n, k: (fact*prior**k) * (1-prior)**(n-k)
 
 
 def plot_decision_network(Id=3.8, Ii=2.6, Io=4.5, g=12, b=34, rmax=60, wid=.21, wdi=.21):

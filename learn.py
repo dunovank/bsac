@@ -11,8 +11,7 @@ from scipy.stats.mstats import mquantiles as mq
 resp_up = lambda trace, a: np.argmax((trace.T >= a).T, axis=2) * dt
 ss_resp_up = lambda trace, a: np.argmax((trace.T >= a).T, axis=3) * dt
 resp_lo = lambda trace: np.argmax((trace.T <= 0).T, axis=3) * dt
-RT = lambda ontime, rbool: ontime[:, na] + \
-    (rbool * np.where(rbool == 0, np.nan, 1))
+RT = lambda ontime, rbool: ontime[:, na] + (rbool * np.where(rbool == 0, np.nan, 1))
 RTQ = lambda zpd: map((lambda x: mq(x[0][x[0] < x[1]], prob)), zpd)
 
 
@@ -171,10 +170,8 @@ def di_lca(Id=3.5, Ii=3, dt=.005, si=2.5, tau=.05, ntrials=10, tmax=3.0, w=-.2, 
     NInput = lambda x, r: rmax / (1 + np.exp(-(x - b) / g)) - r
 
     for i in timepoints:
-        rd[i] = rd[i - 1] + dt / tau * \
-            NInput(Id + k * rd[i - 1] + -w * ri[i - 1], rd[i - 1]) + Ed[i]
-        ri[i] = ri[i - 1] + dt / tau * \
-            NInput(Ii + k * ri[i - 1] + -w * rd[i - 1], ri[i - 1]) + Ei[i]
+        rd[i] = rd[i-1] + dt/tau * NInput(Id + k*rd[i-1] - w*ri[i-1], rd[i-1]) + Ed[i]
+        ri[i] = ri[i-1] + dt/tau * NInput(Ii + k*ri[i-1] - w*rd[i-1], ri[i-1]) + Ei[i]
 
     return rd, ri
 
@@ -188,7 +185,7 @@ def di_decision(p):
 
     Tex = np.ceil((tb - p['tr']) / dt).astype(int)
     #state = np.where(rs(ntot)>.5, 'l', 'r')
-    # state=np.sort(state)
+    #state=np.sort(state)
 
     Pd, Pi, Tex = update_execution(p)
     direct = np.where((rs((nc, Tex.max())).T < Pd), dx, -dx).T
