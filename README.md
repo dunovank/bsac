@@ -1,21 +1,4 @@
 ## BSAC - Believer-Skeptic/Actor-Critic Attractor Model
 
 
-Currently includes Believer-Skeptic Attractor Network http://biorxiv.org/content/early/2016/01/18/037085, representing
-direct-indirect competition within single action channel of BG. Goal is
-to implement a full rate-based neural network including the following nodes
-
-#### CTX
- * Primary Motor
- * Primary Sensory (Generic)
- * Modulatory (preSMA)
-
-#### Basal Ganglia
- * Striatum (dMSN & iMSN)
- * GPe (short indirect)
- * STN (long indirect & hyperdirect)
- * GPi (Output Nucleus)
-
-#### Subcortical
- * SNc
- * Thalamus
+This repository is associated with the manuscript [Believer-Skeptic meets Actor-Critic: Rethinking the role of basal ganglia pathways during decision-making and reinforcement learning](https://www.frontiersin.org/articles/10.3389/fnins.2016.00106/full) The Believer-Skeptic attractor network captures the competitive dynamics of the cortico-striatal direct and indirect pathways within single action channel of basal ganglia. 
