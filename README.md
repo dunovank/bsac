@@ -1,4 +1,4 @@
-#BSAC - Believer-Skeptic/Actor-Critic Cortico-BG Neural Network Model
+## BSAC - Believer-Skeptic/Actor-Critic Attractor Model
 
 
 Currently includes Believer-Skeptic Attractor Network http://biorxiv.org/content/early/2016/01/18/037085, representing
